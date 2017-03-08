@@ -1,0 +1,4 @@
+beautifulsoup4
+flask
+markdown
+neo4j-driver==1.2.0rc1
