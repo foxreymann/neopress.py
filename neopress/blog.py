@@ -10,7 +10,7 @@ from .article import Article
 class Blog(object):
 
     def __init__(self):
-        self.driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password"))
+        self.driver = GraphDatabase.driver("bolt://localhost:7687", auth=("test", "password"))
 
     def close(self):
         self.driver.close()
