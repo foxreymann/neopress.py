@@ -28,6 +28,11 @@ def put_article(slug):
     blog.save_article(Article(slug, request.get_data()))
     return "", 204  # No Content
 
+@app.route("/<slug>", methods=["DELETE"])
+def delete_article(slug):
+    blog.delete_article(slug) or abort(404)
+    return "", 204
+
 
 def run():
     app.run()
