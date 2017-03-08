@@ -19,6 +19,11 @@ SET a.content = $content
 RETURN id(a)
 """
 
+DELETE_ARTICLE = """\
+match (a:article {slug: $slug})
+delete a
+"""
+
 
 class Article(object):
 
@@ -31,6 +36,11 @@ class Article(object):
 
     def save(self, tx):
         result = tx.run(MERGE_ARTICLE, slug=self.slug, content=self.content)
+        record = result.single()
+        return record[0]
+
+    def delete(self, tx):
+        result = tx.run(DELETE_ARTICLE, slug=self.slug, content=self.content)
         record = result.single()
         return record[0]
 
