@@ -19,7 +19,7 @@ class Blog(object):
         with self.driver.session() as session:
             return session.write_transaction(article.save)
 
-    def delete_article(self, article):
+    def delete_article(slug):
         with self.driver.session() as session:
             return session.write_transaction(article.delete)
 

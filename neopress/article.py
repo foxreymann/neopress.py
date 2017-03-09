@@ -39,8 +39,8 @@ class Article(object):
         record = result.single()
         return record[0]
 
-    def delete(self, tx):
-        result = tx.run(DELETE_ARTICLE, slug=self.slug, content=self.content)
+    def delete(slug, tx):
+        result = tx.run(DELETE_ARTICLE, slug=slug)
         record = result.single()
         return record[0]
 
